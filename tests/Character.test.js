@@ -9,16 +9,20 @@ describe('Character class', () => {
     expect(character.type).toBe('Character');
     expect(character.health).toBe(100);
     expect(character.level).toBe(1);
+   
     // Проверка атаки и защиты зависит от типа, оставьте это для конкретных классов
   });
 
   test('should throw an error if provided with incorrect values', () => {
     expect(() => new Character('Jo', 'Warrior')).toThrowError('Name and type should be strings');
   });
-
-  // Добавьте больше тестов для проверки общих свойств и методов Character
+  test('should create a Character object with a valid name', () => {
+    const character = new Character('ValidName'); // Имя должно быть от 2 до 10 символов
+   });
+   test('should throw an error if provided with an invalid name', () => {
+    expect(() => new Character('V')).toThrowError('Name length should be between 2 and 10 characters');
+  });
 });
-
 
 
 

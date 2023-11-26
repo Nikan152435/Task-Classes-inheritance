@@ -1,21 +1,33 @@
 // Character.js
 
 class Character {
-    constructor(name, type) {
-      if (typeof name !== 'string' || typeof type !== 'string') {
-        throw new Error('Name and type should be strings');
-      }
-  
-      this.name = name;
-      this.type = type;
-      this.health = 100;
-      this.level = 1;
+  constructor(name, type) {
+    if (typeof name !== 'string' || typeof type !== 'string') {
+      throw new Error('Name and type should be strings');
     }
-  
-    // Дополнительные методы и свойства для общего класса Character
+    if (name.length < 2 || name.length > 10) {
+      throw new Error('Name length should be between 2 and 10 characters');
+    }
+    this.name = name;
+    this.type = type;
+    this.health = 100;
+    this.level = 1;
   }
-  
-  module.exports = Character;
+
+  damage(points) {
+    this.health -= points;
+    if (this.health < 0) {
+      this.health = 0;
+    }
+  }
+
+  levelUp() {
+    this.level += 1;
+  }
+}
+
+module.exports = Character;
+
 
 
 

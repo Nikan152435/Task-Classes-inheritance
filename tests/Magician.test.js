@@ -18,6 +18,12 @@ describe('Magician class', () => {
     magician.damage(50);
     expect(magician.health).toBe(50);
   });
-
+  test('should create a Magician object with a valid name', () => {
+    const magician = new Magician('ValidName'); // Имя должно быть от 2 до 10 символов
+    // Добавьте ожидаемые проверки для свойств объекта Magician
+  });
+  test('should throw an error if provided with an invalid name', () => {
+    expect(() => new Magician('V')).toThrowError('Name length should be between 2 and 10 characters');
+  });
   // Add more test cases to thoroughly test Magician's properties and methods
 });

@@ -1,19 +1,18 @@
 //Undeadjs
-class Undead {
+
+// Импортируем родительский класс Character
+const Character = require('./Character');
+
+class Undead extends Character{
     constructor(name) {
-      this.name = name;
-      this.type = 'Undead';
+      super(name, 'Undead');
       this.health = 100;
       this.level = 1;
+      this.attack = 25;
+      this.defence = 25;
     }
-  
-    damage(points) {
-        // Применение урона к здоровью
-        this.health -= points;
-        if (this.health < 0) {
-          this.health = 0; // Предотвращение отрицательного здоровья
-        }
-      }
+     
     }
-    
-    module.exports = Undead;
+        module.exports = Undead;
+
+        

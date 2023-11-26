@@ -1,21 +1,21 @@
 // Swordsman.js
-class Swordsman {
-    constructor(name) {
-      this.name = name;
-      this.type = 'Swordsman';
-      this.health = 100;
-      this.level = 1;
-    }
-  
-    
 
-  damage(points) {
-    // Применение урона к здоровью
-    this.health -= points;
-    if (this.health < 0) {
-      this.health = 0; // Предотвращение отрицательного здоровья
-    }
+// Импортируем родительский класс Character
+const Character = require('./Character');
+
+class Swordsman extends Character {
+  constructor(name) {
+    super(name, 'Swordsman');
+    this.health = 100;
+    this.level = 1;
+    this.attack = 40;
+    this.defence = 10;
+    // Другие уникальные для Swordsman характеристики, если есть
   }
+
+ // Дополнительные методы, уникальные для Magician, если есть
+
 }
 
 module.exports = Swordsman;
+
