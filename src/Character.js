@@ -8,11 +8,17 @@ class Character {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Name length should be between 2 and 10 characters');
     }
+   
+    if (type !== 'Character') {
+      throw new Error('Invalid type');
+    }
+    
     this.name = name;
     this.type = type;
     this.health = 100;
     this.level = 1;
   }
+
 
   damage(points) {
     this.health -= points;
@@ -24,10 +30,9 @@ class Character {
   levelUp() {
     this.level += 1;
   }
-}
+};
 
 module.exports = Character;
-
 
 
 

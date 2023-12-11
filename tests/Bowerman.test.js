@@ -18,17 +18,38 @@ describe('Bowerman class', () => {
   test('should throw an error if provided with incorrect values', () => {
     expect(() => new Bowerman('Jo', 'Warrior')).toThrowError('Name length should be between 2 and 10 characters');
   });
-
-  test('should create a bowerman object with a valid name', () => {
-    const bowerman = new Bowerman
-('ValidName'); // Имя должно быть от 2 до 10 символов
-    
-  });
+   
+  
   test('should throw an error if provided with an invalid name', () => {
     expect(() => new Bowerman('V')).toThrowError('Name length should be between 2 and 10 characters');
   });
   // Добавьте больше тестов для проверки общих свойств и методов Bowerman
+  test('should create a  Bowerman object with a valid name', () => {
+    expect(() => new  Bowerman('ValidName', 'SomeType')).toThrowError('Invalid type');
+  });
+
+  test('should throw an error if name or type is not a string', () => {
+    expect(() => new Bowerman(123, 'Warrior')).toThrowError('Name and type should be strings');
+    expect(() => new Bowerman('Jo', 456)).toThrowError('Name and type should be strings');
+  });
+  
+  test('should throw an error if provided with incorrect name length', () => {
+    expect(() => new Bowerman('J', 'Warrior')).toThrowError('Name length should be between 2 and 10 characters');
+  });
+  
+  test('should throw an error if provided with incorrect type length', () => {
+    expect(() => new Bowerman('John', 'W')).toThrowError('Type length should be between 2 and 10 characters');
+  });
+
+  test('should throw an error if provided with incorrect values', () => {
+    expect(() => new Bowerman('Jo', undefined)).toThrowError('Name length should be between 2 and 10 characters');
+  });
+  
+  test('should throw an error if provided with an invalid name', () => {
+    expect(() => new Bowerman(undefined, 'Bowerman')).toThrowError('Name and type should be strings');
+  });
 });
+
 
 
 

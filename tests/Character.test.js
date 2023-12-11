@@ -16,12 +16,27 @@ describe('Character class', () => {
   test('should throw an error if provided with incorrect values', () => {
     expect(() => new Character('Jo', 'Warrior')).toThrowError('Name and type should be strings');
   });
-  test('should create a Character object with a valid name', () => {
-    const character = new Character('ValidName'); // Имя должно быть от 2 до 10 символов
-   });
-   test('should throw an error if provided with an invalid name', () => {
+  
+  test('should throw an error if provided with an invalid name', () => {
     expect(() => new Character('V')).toThrowError('Name length should be between 2 and 10 characters');
   });
+  test('should create a Character object with a valid name', () => {
+    expect(() => new Character('ValidName', 'SomeType')).toThrowError('Invalid type');
+  });
+
+  test('should throw an error if name or type is not a string', () => {
+    expect(() => new Character(123, 'Warrior')).toThrowError('Name and type should be strings');
+    expect(() => new Character('Jo', 456)).toThrowError('Name and type should be strings');
+  });
+  
+  test('should throw an error if provided with incorrect name length', () => {
+    expect(() => new Character('J', 'Warrior')).toThrowError('Name length should be between 2 and 10 characters');
+  });
+  
+  test('should throw an error if provided with incorrect type length', () => {
+    expect(() => new Character('John', 'W')).toThrowError('Type length should be between 2 and 10 characters');
+  });
+
 });
 
 
